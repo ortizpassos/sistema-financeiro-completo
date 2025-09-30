@@ -58,6 +58,13 @@ class KeyboardNavigation {
     }
 
     handleKeyDown(e) {
+        const active = document.activeElement;
+        const isFormField = active && (
+            active.tagName === 'INPUT' ||
+            active.tagName === 'TEXTAREA' ||
+            active.tagName === 'SELECT' ||
+            active.isContentEditable
+        );
         switch(e.key) {
             case 'Tab':
                 e.preventDefault();
@@ -108,24 +115,34 @@ class KeyboardNavigation {
             
             // Teclas numéricas para navegação rápida no menu
             case '1':
-                e.preventDefault();
-                this.focusMenuItem(0);
+                if(!isFormField){
+                    e.preventDefault();
+                    this.focusMenuItem(0);
+                }
                 break;
             case '2':
-                e.preventDefault();
-                this.focusMenuItem(1);
+                if(!isFormField){
+                    e.preventDefault();
+                    this.focusMenuItem(1);
+                }
                 break;
             case '3':
-                e.preventDefault();
-                this.focusMenuItem(2);
+                if(!isFormField){
+                    e.preventDefault();
+                    this.focusMenuItem(2);
+                }
                 break;
             case '4':
-                e.preventDefault();
-                this.focusMenuItem(3);
+                if(!isFormField){
+                    e.preventDefault();
+                    this.focusMenuItem(3);
+                }
                 break;
             case '5':
-                e.preventDefault();
-                this.focusMenuItem(4);
+                if(!isFormField){
+                    e.preventDefault();
+                    this.focusMenuItem(4);
+                }
                 break;
             
             // Tecla Home para voltar ao início

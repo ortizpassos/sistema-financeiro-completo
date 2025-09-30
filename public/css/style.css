@@ -35,6 +35,28 @@ body {
 /* Logo */
 .logo-section {
     margin-bottom: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1100; /* acima do conteúdo interno da sidebar */
+    background: linear-gradient(135deg, #f4e4c1 0%, #e8d5b7 100%);
+    /* Bordas suaves para separar em scroll */
+    box-shadow: 0 4px 8px -4px rgba(0,0,0,0.15);
+}
+
+/* Botão de edição da logo: aparece apenas ao passar o mouse ou focar (teclado) */
+.logo-section .logo-edit-btn {
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity .25s ease, transform .25s ease;
+    /* Mantém acessível a leitores de tela mesmo invisível visualmente */
+}
+
+.logo-section:hover .logo-edit-btn,
+.logo-section:focus-within .logo-edit-btn,
+.logo-section .logo-edit-btn:focus,
+.logo-section .logo-edit-btn:active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .logo-container {
@@ -101,6 +123,28 @@ body {
 .saldo-value {
     font-size: 18px;
     font-weight: bold;
+}
+
+/* Botão de suporte (WhatsApp) */
+.suporte-container {
+    background: #34495e;
+    border-radius: 25px;
+    padding: 15px 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background .3s ease, transform .2s ease;
+}
+
+.suporte-container:hover,
+.suporte-container:focus {
+    background: #2c3e50;
+    transform: translateY(-2px);
 }
 
 /* Menu de Navegação */
@@ -351,9 +395,54 @@ body {
     }
     
     .nav-item {
-        font-size: 10px;
+        font-size: 11px;
+        padding: 10px 14px;
+    }
+
+    .logo-section {
+        padding-top: 12px !important;
+        padding-bottom: 12px !important;
+    }
+
+    .logo-circle {
+        width: 70px;
+        height: 70px;
+    }
+
+    #app-logo-img {
+        max-width: 90px !important;
+        max-height: 70px !important;
+    }
+
+    .header-section {
         padding: 10px 15px;
     }
+
+    .content-area {
+        padding: 15px;
+        height: calc(100vh - 60px);
+    }
+
+    .table-responsive-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Overlay para menu mobile */
+.sidebar-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 900;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+}
+.sidebar-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* Estados de foco para navegação por teclado */

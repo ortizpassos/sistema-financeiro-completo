@@ -14,12 +14,19 @@
             <!-- Sidebar -->
             <div class="col-md-3 col-lg-2 sidebar p-0">
                 <div class="sidebar-content">
-                    <!-- Logo -->
-                    <div class="logo-section">
-                        <div class="logo-container">
-                            <div class="logo-circle">
+                    <!-- Logo (customizável) -->
+                    <div class="logo-section text-center py-3">
+                        <div id="app-logo-wrapper" class="d-flex flex-column align-items-center gap-2">
+                            <div id="app-logo-fallback" class="logo-circle">
                                 <span class="logo-text">goUP</span>
                                 <span class="logo-subtitle">content</span>
+                            </div>
+                            <img id="app-logo-img" src="" alt="Logo" style="display:none; max-width:120px; max-height:120px; object-fit:contain;" />
+                            <div>
+                                <button id="app-logo-edit" class="btn btn-sm btn-outline-light logo-edit-btn" title="Alterar Logo" type="button">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <input id="app-logo-file" type="file" accept="image/*" style="display:none;" />
                             </div>
                         </div>
                     </div>
@@ -61,10 +68,10 @@
 
                     <!-- Suporte -->
                     <div class="suporte-section">
-                        <div class="suporte-container">
+                        <button id="support-btn" class="suporte-container w-100" type="button" aria-label="Abrir suporte via WhatsApp" title="Suporte (WhatsApp)">
                             <i class="bi bi-headset"></i>
                             <span>Suporte</span>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -72,7 +79,10 @@
             <!-- Conteúdo Principal -->
             <div class="col-md-9 col-lg-10 main-content">
                 <!-- Header com botão Voltar -->
-                <div class="header-section">
+                <div class="header-section d-flex align-items-center justify-content-between">
+                    <button id="menu-toggle" class="btn btn-outline-secondary d-md-none" type="button" aria-label="Abrir menu" title="Menu">
+                        <i class="bi bi-list" style="font-size:1.5rem;"></i>
+                    </button>
                     <button class="btn-voltar" onclick="voltarTela()" tabindex="6">
                         <i class="bi bi-house-door"></i>
                         <span>Voltar</span>
@@ -88,9 +98,21 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/storageUtils.js"></script>
+    <script src="js/categories.js"></script>
+    <script src="js/suppliers.js"></script>
+    <script src="js/paymentMethods.js"></script>
+    <script src="js/expenses.js"></script>
+    <script src="js/receiptMethods.js"></script>
+    <script src="js/receipts.js"></script>
+    <script src="js/salesChannels.js"></script>
+    <script src="js/sales.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/screens.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/logo.js"></script>
+    <script src="js/support.js"></script>
+    <script src="js/responsive.js"></script>
 </body>
 </html>
 
